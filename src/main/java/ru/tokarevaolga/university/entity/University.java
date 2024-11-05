@@ -2,10 +2,24 @@ package ru.tokarevaolga.university.entity;
 
 public class University {
 
-    String universityName;
-    String city;
+    private String universityName;
 
-    public University(String universityName, String city) {
+    public University(String universityName) {
+        this.universityName = universityName;
+    }
+
+    public String getUniversityName() {
+        return universityName;
+    }
+
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
+    }
+}
+
+// private String city;
+
+   /* public University(String universityName, String city) {
         this.universityName = universityName;
         this.city = city;
     }
@@ -14,3 +28,4 @@ public class University {
         System.out.println("Добро пожаловать в " + universityName + " в городе " + city);
     }
 }
+*/

@@ -10,19 +10,24 @@ import ru.tokarevaolga.university.util.TeachOrganizer;
 public class _Main {
     public static void main(String[] args) {
 
-        University university1 = new University("Университет программирования", "Москва");
-        university1.printUniversityInfo();//вызывать печать не у класса, а у экземпляра
-        Teacher teacher1 = new Teacher("Роман", "Андреев", 10, university1);
-        teacher1.printTeacherInfo();//вызывать печать не у класса, а у экземпляра
-        Student student1 = new Student("Иван", "Петров", 25, teacher1);
-        student1.printStudentInfo();//вызывать печать не у класса, а у экземпляра
+        University university1 = new University("Университет программирования");
+        Student student1 = new Student();
+        student1.setStudentName("Иван");
+        student1.setStudentSurname("Петров");
+        student1.setStudentAge(25);
+
+        Teacher teacher1 = new Teacher("Роман", "Андреев", 10, university1, student1);
+
+        student1.setTeacherName(teacher1);
+
         StudyOrganizer studyOrganizer1 = new StudyOrganizer();
-        studyOrganizer1.studyActivities(student1);
         TeachOrganizer teachOrganizer1 = new TeachOrganizer();
-        teachOrganizer1.teachActivities(teacher1);
-        System.out.println("Экзамен - важная часть обучения.");
         ExamOrganizer examOrganizer1 = new ExamOrganizer();
-        examOrganizer1.organizeExam(student1);
+
+        studyOrganizer1.studyActivities(student1);
+        teachOrganizer1.teachActivities(teacher1);
         examOrganizer1.organizeExam(teacher1);
+        examOrganizer1.organizeExam(student1);
     }
 }
+
